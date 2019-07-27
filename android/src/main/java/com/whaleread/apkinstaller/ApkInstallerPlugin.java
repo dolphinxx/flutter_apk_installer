@@ -38,14 +38,14 @@ public class ApkInstallerPlugin implements MethodCallHandler {
     @Override
     public void onMethodCall(MethodCall call, Result result) {
         if (call.method.equals("install")) {
-            installPackage(call.<String>argument("path"));
+            installPackage(call.<String>argument("path"), call.<String>argument("packageName"));
             result.success(null);
         } else {
             result.notImplemented();
         }
     }
 
-    private void installPackage(String path) {
+    private void installPackage(String path, String packageName) {
         File file = new File(path);
         if (!file.exists()) {
             throw new RuntimeException(path + " not found!");
@@ -57,7 +57,7 @@ public class ApkInstallerPlugin implements MethodCallHandler {
             intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
         } else {
             Uri fileUri = FileProvider.getUriForFile(context,
-                    "com.whaleread.apkinstaller.provider",
+                    packageName,
                     file);
             intent.setDataAndType(fileUri, "application/vnd.android.package-archive");
             intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
