@@ -3,17 +3,19 @@ version '1.0-SNAPSHOT'
 
 buildscript {
     repositories {
+	    maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
         google()
         jcenter()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.android.tools.build:gradle:3.6.4'
     }
 }
 
 rootProject.allprojects {
     repositories {
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
         google()
         jcenter()
     }
@@ -22,7 +24,7 @@ rootProject.allprojects {
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
 
     defaultConfig {
         minSdkVersion 16
@@ -33,6 +35,6 @@ android {
     }
 
     dependencies {
-        implementation 'androidx.appcompat:appcompat:1.1.0-alpha02'
+        implementation 'androidx.appcompat:appcompat:1.2.0-beta01'
     }
 }
