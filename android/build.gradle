@@ -3,7 +3,7 @@ version '1.0-SNAPSHOT'
 
 buildscript {
     repositories {
-	    maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+//	    maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
         google()
         jcenter()
     }
@@ -15,7 +15,7 @@ buildscript {
 
 rootProject.allprojects {
     repositories {
-        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+//        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
         google()
         jcenter()
     }
@@ -32,9 +32,13 @@ android {
     }
     lintOptions {
         disable 'InvalidPackage'
+        checkReleaseBuilds false
+        abortOnError false
     }
 
     dependencies {
-        implementation 'androidx.appcompat:appcompat:1.2.0-beta01'
+        implementation 'androidx.appcompat:appcompat:1.2.0'
+        implementation 'androidx.lifecycle:lifecycle-common:2.2.0'
+        implementation 'androidx.lifecycle:lifecycle-runtime:2.2.0'
     }
 }
