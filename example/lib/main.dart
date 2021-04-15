@@ -42,21 +42,21 @@ class _MyAppState extends State<MyApp> {
         ),
         body:Column(
           children: <Widget>[
-            RaisedButton(
+            ElevatedButton(
               child: Text('Install From App Dir'),
               onPressed: () async {
                 Directory dir = await getApplicationDocumentsDirectory();
                 _copyAndInstall(dir);
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Install From External Dir'),
               onPressed: () async {
                 Directory dir = await getExternalStorageDirectory();
                 _copyAndInstall(dir);
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Install From Cache Dir'),
               onPressed: () async {
                 Directory dir = await getTemporaryDirectory();
