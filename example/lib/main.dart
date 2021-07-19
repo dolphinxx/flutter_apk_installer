@@ -52,7 +52,7 @@ class _MyAppState extends State<MyApp> {
             ElevatedButton(
               child: Text('Install From External Dir'),
               onPressed: () async {
-                Directory dir = await getExternalStorageDirectory();
+                Directory dir = (await getExternalStorageDirectory())!;
                 _copyAndInstall(dir);
               },
             ),
